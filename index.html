@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dokumentation AI</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; background:#f4f6f8; color:#333; }
+header { background:#1e2a38; color:white; padding:20px; text-align:center; }
+section { max-width:1000px; margin:40px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1);} 
+h2 { border-bottom:2px solid #eee; padding-bottom:10px; }
+.slideshow { position:relative; max-width:100%; height:300px; overflow:hidden; border-radius:10px; margin-top:20px; }
+.slide { position:absolute; width:100%; height:100%; opacity:0; transition:opacity 0.5s; }
+.slide img { width:100%; height:100%; object-fit:cover; }
+.slide.active { opacity:1; }
+button { margin-top:10px; padding:10px 15px; border:none; background:#1e2a38; color:white; border-radius:5px; cursor:pointer; }
+button:hover { background:#2f3e50; }
+</style>
+</head>
+<body>
+<header>
+<h1>Dokumentation AI</h1>
+</header>
+
+<section>
+<h2>Beskrivning</h2>
+<p>Fabricate är ett fullstack AI verktyg som omvandlar promptar till fullskaliga webbsidor som är färdig att publicera. Man skriver alltså in vad man vill skapa för typ av hemsida, och fabricate löser allt annat. Den har hand om allting från frontend till backend.</p>
+</section>
+
+<section>
+<h2>Test 1</h2>
+<p>Det första jag behövde göra för att få tillgång till Fabricate var att skapa ett konto. Detta gick snabbt och smidigt...</p>
+<div class="slideshow" id="slideshow1">
+<div class="slide active"><img src="https://via.placeholder.com/1000x300?text=Bild+1"></div>
+<div class="slide"><img src="https://via.placeholder.com/1000x300?text=Bild+2"></div>
+<div class="slide"><img src="https://via.placeholder.com/1000x300?text=Bild+3"></div>
+</div>
+<button onclick="nextSlide('slideshow1')">Nästa bild</button>
+</section>
+
+<section>
+<h2>Test 2</h2>
+<p>I mitt andra test valde jag att se hur väl den kunde skapa en webbsida som var mer i underhållningssyfte...</p>
+<div class="slideshow" id="slideshow2">
+<div class="slide active"><img src="https://via.placeholder.com/1000x300?text=Quiz+1"></div>
+<div class="slide"><img src="https://via.placeholder.com/1000x300?text=Quiz+2"></div>
+<div class="slide"><img src="https://via.placeholder.com/1000x300?text=Quiz+3"></div>
+</div>
+<button onclick="nextSlide('slideshow2')">Nästa bild</button>
+</section>
+
+<section>
+<h2>Kostnader</h2>
+<p>Så här ser de olika betalningsplanerna ut och vad som ingår i dem:</p>
+</section>
+
+<section>
+<h2>Anmärkningar / Nackdelar</h2>
+<p>En sak som jag stötte på flera gånger under mina tester var att Fabricates preview stänger ner sig oerhört fort och tar ganska lång tid på sig att starta upp igen.</p>
+</section>
+
+<script>
+function nextSlide(id) {
+  const slideshow = document.getElementById(id);
+  const slides = slideshow.getElementsByClassName('slide');
+  let current = 0;
+  for (let i = 0; i < slides.length; i++) {
+    if (slides[i].classList.contains('active')) {
+      slides[i].classList.remove('active');
+      current = i;
+      break;
+    }
+  }
+  let next = (current + 1) % slides.length;
+  slides[next].classList.add('active');
+}
+</script>
+
+</body>
+</html>
